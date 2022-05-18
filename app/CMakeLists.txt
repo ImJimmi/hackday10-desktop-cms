@@ -3,6 +3,15 @@ juce_add_gui_app(desktop-cms-demo
     VERSION 1.0.0
 )
 
+find_package(Python3)
+
+execute_process(COMMAND
+    ${Python3_EXECUTABLE} -m pip install -r "${CMAKE_CURRENT_SOURCE_DIR}/scripts/requirements.txt"
+)
+execute_process(COMMAND
+    ${Python3_EXECUTABLE} "${CMAKE_CURRENT_SOURCE_DIR}/scripts/pull_resources.py" --access_key=${AWS_ACCESS_KEY} --secret_key=${AWS_SECRET_KEY} --repo_directory=${CMAKE_CURRENT_SOURCE_DIR}
+)
+
 juce_add_binary_data(desktop-cms-demo-resources
 SOURCES
     resources/forest.jpg

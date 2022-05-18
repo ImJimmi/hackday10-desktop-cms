@@ -1,4 +1,6 @@
 build/
+**/resources/*
+**/.env
 .vscode/settings.json
 
 # Prerequisites

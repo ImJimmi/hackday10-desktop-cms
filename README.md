@@ -10,14 +10,14 @@
 
 ### Build on the command-line
 
-2. Configure CMake:
+1. Configure CMake:
 
     ```bash
     cd hackday10-desktop-cms
     cmake -Bbuild -GNinja
     ```
 
-3. Build:
+2. Build:
 
     ```bash
     cmake --build build --config Release
@@ -25,12 +25,21 @@
 
 ### Build with Visual Studio Code
 
-2. Open in VS Code:
+1. Open in VS Code:
 
     ```bash
     code hackday10-desktop-cms
     ```
 
-3. Install [C/C++ Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack)
+2. Install [C/C++ Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack)
 
-4. Press <kbd>F5</kbd> to launch the debugger
+3. Press <kbd>F5</kbd> to launch the debugger
+
+### Python
+
+1. Install dependencies
+
+    ```bash
+    cd hackday10-desktop-cms
+    pip3 install -r app/scripts/requirements.txt
+    ```
