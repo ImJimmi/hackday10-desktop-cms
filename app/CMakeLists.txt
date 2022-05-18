@@ -3,9 +3,15 @@ juce_add_gui_app(desktop-cms-demo
     VERSION 1.0.0
 )
 
+juce_add_binary_data(desktop-cms-demo-resources
+SOURCES
+    resources/forest.jpg
+)
+
 target_sources(desktop-cms-demo
 PRIVATE
     source/main.cpp
+    source/Window.h
 )
 
 target_compile_definitions(desktop-cms-demo
@@ -16,6 +22,7 @@ PRIVATE
 
 target_link_libraries(desktop-cms-demo
 PRIVATE
+    desktop-cms-demo-resources
     juce::juce_gui_basics
 )
 
