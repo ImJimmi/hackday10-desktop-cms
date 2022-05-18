@@ -1,4 +1,5 @@
 build/
+**/resources/*
 **/.env
 .vscode/settings.json
 
