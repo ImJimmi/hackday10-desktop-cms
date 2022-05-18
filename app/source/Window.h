@@ -1,5 +1,6 @@
 #pragma once
 
+#include <BinaryData.h>
 #include <juce_gui_basics/juce_gui_basics.h>
 
 class Window : public juce::DocumentWindow
@@ -14,7 +15,16 @@ public:
         setResizable(true, false);
         setVisible(true);
 
-        centreWithSize(400, 300);
+        image.setImage(juce::ImageCache::getFromMemory(BinaryData::forest_jpg,
+                                                       BinaryData::forest_jpgSize));
+        image.setSize(image.getImage().getWidth(),
+                      image.getImage().getHeight());
+
+        static constexpr auto resizeWindowToFitContent = true;
+        setContentNonOwned(&image, resizeWindowToFitContent);
+
+        centreWithSize(image.getWidth(),
+                       image.getHeight());
     }
 
     void closeButtonPressed() final
@@ -26,5 +36,7 @@ public:
     std::function<void(void)> onClose = nullptr;
 
 private:
+    juce::ImageComponent image;
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Window)
 };
