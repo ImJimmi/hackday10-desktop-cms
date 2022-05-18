@@ -6,6 +6,7 @@ juce_add_gui_app(desktop-cms-demo
 target_sources(desktop-cms-demo
 PRIVATE
     source/main.cpp
+    source/Window.h
 )
 
 target_compile_definitions(desktop-cms-demo

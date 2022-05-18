@@ -1,5 +1,7 @@
 #include <juce_gui_basics/juce_gui_basics.h>
 
+#include "Window.h"
+
 class App : public juce::JUCEApplication
 {
 public:
@@ -17,17 +19,20 @@ public:
 
     void initialise(const juce::String& /*args*/) final
     {
-        std::cout << "Hello, World!" << std::endl;
-
-        systemRequestedQuit();
+        window = std::make_unique<Window>();
+        window->onClose = [this]() {
+            systemRequestedQuit();
+        };
     }
 
     void shutdown() final
     {
-        std::cout << "Goodbye, World!" << std::endl;
+        window = nullptr;
     }
 
 private:
+    std::unique_ptr<Window> window;
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(App)
 };
 
